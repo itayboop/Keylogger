@@ -10,7 +10,7 @@ int Listener::recordAndSendKeys() {
 	}
 }
 
-int Listener::init() {
+int Listener::init() {	
 	if (WSAStartup(MAKEWORD(2, 2), &this->_wsa_data) != 0) {
 		std::cerr << "could not initialize winsock" << std::endl;
 		return -1;
@@ -49,7 +49,7 @@ int Listener::listenAndAccept() {
 		WSACleanup();
 		return -1;
 	}
-	std::cout << "Listening of port " << this->_port << std::endl;
+	std::cout << "Listening on port " << this->_port << std::endl;
 
 	client_sock_addr_len = sizeof(this->_client_sock_info);
 	this->_client_socket = accept(this->_listen_socket, (SOCKADDR*)&this->_client_sock_info, &client_sock_addr_len);

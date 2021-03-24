@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4408b1ba-4911-4de8-86fe-804033000f58}</ProjectGuid>
-    <RootNamespace>Server</RootNamespace>
+    <ProjectGuid>{95b31a31-22a1-48b2-90a9-ceba224c12b9}</ProjectGuid>
+    <RootNamespace>newKeyloggerVictim</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -141,11 +141,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Listener.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="Victim.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Listener.h" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Victim.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

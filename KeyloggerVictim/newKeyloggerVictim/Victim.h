@@ -7,7 +7,7 @@
 
 #define ACTIVE_PROMISE_CODE -32767
 
-const int CONNECTION_PORT = 10520;
+const int CONNECTION_PORT = 14707;
 const std::string DEFAULT_IP = "127.0.0.1";
 
 class Victim {

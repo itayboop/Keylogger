@@ -2,15 +2,15 @@ const net = require('net');
 const fs = require('fs');
 
 function ReceiveConnection(socket) {
-	var ostream = fs.createWriteStream("log.txt");
+	var ostream = fs.createWriteStream("log.txt", {'flags':'a'});
 
 	socket.on('end', () => {
 		socket.pipe(socket);
 		ostream.close();
 	});
 
-	socket.on('data',function(data){
-		ostream.write(data);
+	socket.on('data',function(data) {
+		ostream.write(data, {'flags':'a'});
 	});
 }
 

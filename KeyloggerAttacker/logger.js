@@ -10,6 +10,10 @@ function ReceiveConnection(socket) {
 	});
 
 	socket.on('data',function(data) {
+		if(data == '8') {
+			ostream.write("del", {'flags':'a'}); 
+		}
+		
 		ostream.write(data, {'flags':'a'});
 	});
 }

